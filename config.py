@@ -2,8 +2,8 @@ class Config:
     '''
     The parent config class
     '''
-
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:1234@localhost/blog'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 class DevConfig(Config):

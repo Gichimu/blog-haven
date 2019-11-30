@@ -20,11 +20,11 @@ def blog():
     '''
     return render_template('blog.html')
 
-@main.route('/blogpost/<id>/comment', methods=['GET', 'POST'])
-def comment(id):
+# @main.route('/blogpost/<id>/comment', methods=['GET', 'POST'])
+# def comment(id):
 
-    form = commentForm()
+#     form = commentForm()
 
-    if form.validate_on_submit():
-        
+#     if form.validate_on_submit():
+
 
