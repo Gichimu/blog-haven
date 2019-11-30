@@ -2,12 +2,12 @@
 
 {%block content%}
 <div class="container">
-        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <ul class="nav nav-tabs justify-content-center sticky-top" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#blogposts" role="tab" aria-controls="profile" aria-selected="false">All blogs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
@@ -19,17 +19,79 @@
           <div class="tab-content" id="myTabContent">
             
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="container overlay content">
+                    <div class="container overlay body">
                         <div class="jumbotron text-center">
                             - {{quote.quote}} -<br>
                             <br>
                             ~ {{quote.author}}
                         </div>
+                        <div class="text-center separator"><p>- Latest Blogposts -</p></div>
+                        <div class="content">
+                            <a href="" class="card">
+                                <div class="card-header">Title</div>
+                                <div href="" class="card-body">
+                                    <img class="img-responsive blog-photo" src="https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687" alt="">
+                                
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <div class="icons">
+                
+                                        <div class="comments">
+                                            <i class="far fa-comment"></i> 4
+                                        </div>
+                                        <div>|</div>
+                                        <div class="likes">
+                                            <i class="fas fa-thumbs-up"></i> 22
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="" class="card">
+                                <div class="card-header">Title</div>
+                                <div class="card-body">
+                                        <img class="img-responsive blog-photo" src="https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687" alt="">
+                                
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <div class="icons">
+                
+                                        <div class="comments">
+                                            <i class="far fa-comment"></i> 4
+                                        </div>
+                                        <div>|</div>
+                                        <div class="likes">
+                                            <i class="fas fa-thumbs-up"></i> 22
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/blogpost" class="card">
+                                <div class="card-header">The best title ever ~2 days ago</div>
+                                <div class="card-body">
+                                        <img class="img-responsive blog-photo" src="https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687" alt="">
+                                
+                                </div>
+                                <div class="card-footer text-muted text-center">
+                                    
+                                    <div class="icons">
+                    
+                                        <div class="comments">
+                                            <i class="far fa-comment"></i> 4
+                                        </div>
+                                        <div>|</div>
+                                        <div class="likes">
+                                            <i class="fas fa-thumbs-up"></i> 22
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade" id="blogposts" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="container overlay content">
-                            <p>This is the profile</p>
+                            <p>This are all blogposts</p>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">

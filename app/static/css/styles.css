@@ -24,16 +24,84 @@ body {
     
 }
 
-.content {
-    padding: 1%;
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(231, 225, 225, 0.1);
+  }
+
+.body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content, .icons {
+    margin: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.content a {
+    text-decoration: none;
+    color: black;
 }
 
 .jumbotron {
+    margin-bottom: 1%;
     color: black;
     font-family: 'Yellowtail', serif;
     font-size: 1.5em;
 }
 
+.card {
+    color: black;
+    margin: 5px;
+}
+
+
+.separator {
+    margin-top: 2%;
+    font-family: 'Special Elite', serif;
+    font-size: 1.2em;
+}
+
+.blog-photo {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+/* blog */
+.blog-container {
+    position: relative;
+}
+
+.blog-content {
+    padding: 5px;
+}
+
+.blog-text {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.comment {
+    padding: 30px;
+}
+
+.divider {
+    border-bottom: 1px solid rgba(231, 225, 225, 0.1);
+    width: 50%
+}
+
+.btn {
+    margin: 10px;  
+}
+
+/* overlay */
 .overlay {
     position: absolute;
     top: auto;

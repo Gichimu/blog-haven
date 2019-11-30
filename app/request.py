@@ -3,10 +3,6 @@ from .models import Quote
 
 quote_url = 'http://quotes.stormconsultancy.co.uk/random.json'
 
-# def configure_request(app):
-
-     
-
 
 def get_quote():
     '''
