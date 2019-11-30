@@ -1,6 +1,6 @@
 class Config:
 
-    pass
+    QUOTE_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
 
 
 

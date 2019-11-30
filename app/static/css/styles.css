@@ -1,3 +1,47 @@
 body {
-    background-color: seagreen;
+    margin: 1%;
+    background-image: url("https://img.freepik.com/free-photo/room-with-concrete-floor-smoke-background_9083-2991.jpg?size=626&ext=jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: bisque;
 }
+
+.nav {
+    font-size: 1.5em;
+    font-family: 'Special Elite', serif;
+    
+}
+
+.nav li a {
+    color: bisque;
+}
+
+.tab-content {
+    margin: 2%;
+    position: relative;
+    
+    
+}
+
+.content {
+    padding: 1%;
+}
+
+.jumbotron {
+    color: black;
+    font-family: 'Yellowtail', serif;
+    font-size: 1.5em;
+}
+
+.overlay {
+    position: absolute;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    background-color: rgba(13, 91, 192, 0.164);
+    border: 1px solid rgba(13, 91, 192, 0.164);
+    border-radius: 5px;
+  }

@@ -1,4 +1,5 @@
 from flask import render_template
+from ..request import get_quote
 from . import main
 
 
@@ -7,5 +8,5 @@ def home():
     '''
     Homepage route
     '''
-
-    return render_template('index.html')
+    quote = get_quote()
+    return render_template('index.html', quote=quote)

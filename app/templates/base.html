@@ -2,16 +2,12 @@
 
 {%block styles%}
     {{super()}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yellowtail">
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
 {%endblock%}
-{%block navbar%}
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">Navbar</a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search blogpost</button>
-    </form>
-  </nav>
-{%endblock%}
+
+
 {%block content%}
+
 {%endblock%}
