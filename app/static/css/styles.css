@@ -101,6 +101,27 @@ hr {
     margin: 10px;  
 }
 
+/* login */
+
+.login, .reg-inner {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.login a {
+    text-decoration: none;
+    color: red;
+}
+
+.reg-container {
+    position: relative;
+}
+
+.reg-inner input{
+    max-width: 50%;
+    margin: 0 auto;
+}
+
 /* overlay */
 .overlay {
     position: absolute;

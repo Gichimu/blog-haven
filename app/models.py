@@ -12,7 +12,7 @@ class Quote:
         self.quote = quote
 
 
-class User:
+class User(db.Model):
     '''
     Class that defines the user object template
     '''
@@ -37,7 +37,7 @@ class User:
     def __repr__(self):
         return f'User {self.username}'
 
-class Comment:
+class Comment(db.Model):
     '''
     Class that defines the default template for the comment object
     '''
@@ -53,7 +53,11 @@ class Comment:
         db.session.commit()
 
 
-class BlogPost:
+    def __repr__(self):
+        return f'Comment {self.comment}'
+
+
+class Blogpost(db.Model):
     '''
     Class that defines the default template for the blog object
     '''
@@ -65,6 +69,11 @@ class BlogPost:
     blog_text = db.Column(db.Text)
     timestamp = db.Column(db.DateTime)
     comments = db.relationship('Comment', backref='blogpost', lazy=True)
+
+
+
+    def __repr__(self):
+        return f'Blogpost {self.id}'
 
     
 

@@ -11,6 +11,7 @@ def create_app(config_name):
     
     #setting up configurations
     app.config.from_object(config_options[config_name])
+    
 
     #initializing app extensions
     bootstrap.init_app(app)
