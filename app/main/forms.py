@@ -6,9 +6,13 @@ from wtforms import ValidationError
 
 
 class commentForm(FlaskForm):
+    name = TextField('Your name', validators=[Required()])
     comment = TextAreaField('Enter your comment...', validators=[Required()])
-    name = TextField('Your name...', validators=[Required()])
-    email = TextField('Your email...', validators=[Required()])
+    submit = SubmitField('Submit')
+
+class createBlog(FlaskForm):
+    title = TextField('Title (255 characters maximum)', validators=[Required()])
+    blog = TextAreaField('Enter your text here ...', render_kw={'class': 'form-control', 'rows': 10}, validators=[Required()])
     submit = SubmitField('Submit')
 
 

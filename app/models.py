@@ -1,5 +1,10 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
+from . import db, login_manager
+from flask_login import UserMixin
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class Quote:
     '''
@@ -12,7 +17,7 @@ class Quote:
         self.quote = quote
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     '''
     Class that defines the user object template
     '''
@@ -20,7 +25,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80))
     email = db.Column(db.String(80), unique=True, index=True)
-    blogposts = db.relationship('Blogpost', backref='users', lazy=True)
+    blogposts = db.relationship('Blogpost', backref='users', lazy='dynamic')
     password_secure = db.Column(db.String(255))
 
     @property
@@ -46,7 +51,7 @@ class Comment(db.Model):
     blog_id = db.Column(db.Integer, db.ForeignKey('blogposts.id'))
     comment = db.Column(db.String())
     name = db.Column(db.String(255))
-    email = db.Column(db.String(255), unique = True, index = True)
+    timestamp = db.Column(db.DateTime)
 
     def save_comment(self):
         db.session.add(self)
@@ -65,17 +70,33 @@ class Blogpost(db.Model):
     __tablename__ = 'blogposts'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    title = db.Column(db.String(255))
     photo_uri = db.Column(db.String(255))
     blog_text = db.Column(db.Text)
     timestamp = db.Column(db.DateTime)
-    comments = db.relationship('Comment', backref='blogpost', lazy=True)
+    comments = db.relationship('Comment', backref='blogpost', lazy='dynamic')
+
+    @classmethod
+    def get_all_posts(cls):
+        posts = cls.query.all()
+        return posts
 
 
 
     def __repr__(self):
         return f'Blogpost {self.id}'
 
-    
+
+class Vote(db.Model):
+
+    __tablename__ = 'votes'
+    id = db.Column(db.Integer, primary_key=True)
+    blog_id = db.Column(db.Integer)
+    upvotes = db.Column(db.Integer, default=0)
+    downvotes = db.Column(db.Integer, default=0)
+
+    def __repr__(self):
+        return f'Votes {self.upvotes}'
 
     
 

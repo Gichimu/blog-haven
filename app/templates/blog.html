@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{%import 'macros.html' as macro%}
 
 {%block content%}
     <div class="container blog-container">
@@ -6,7 +7,7 @@
             <div class="breadcrumb blog-content">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url_for('main.home')}}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">All blogs</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Blog Title</li>
                     </ol>
@@ -16,38 +17,29 @@
                 <img class="img-fluid" src="https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687" alt="">
             </div>
             <div class="blog-text blog-content">
-                <h4>Blog Title</h4>
+                <h4>{{blog.title}}</h4>
                 <hr>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when 
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution 
-                    of letters, as opposed to using 'Content here, content here', making it look like readable English. Many 
-                    desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a 
-                    search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved 
-                    over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-                    </p>
+                <p>{{blog.blog_text}}</p>
+                <p class="float-left"><i class="far fa-thumbs-up"></i>{{like_count}}</p>
+                <p class="float-right">Created on: <small>{{blog.timestamp}}</small></p>
             </div>
             <div class="blog-footer blog-content blog-text">
                 <h5>Comments</h5>
                 <hr>
-                <div class="comment float-left">
-                <h6>Lucy, A <small class="float-right">-6 minutes ago</small></h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-                    scrambled it to make a type specimen book.</p>
-                </div>
+                {%if comments%}
+                    {{macro.displayComments(comments)}}
+                {%else%}
+                    <p>No comments for this blog</p>
+                {%endif%}
                 
-                <div class="comment float-right">
-                    <h6>Antone, A <small class="float-right">-6 minutes ago</small></h6>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-                        scrambled it to make a type specimen book.</p>
-                </div>
+                {%if current_user.is_authenticated%}
                 <div class="social-buttons text-center">
-                    <a href="/blog/{{id}}/comment" class="btn btn-outline-primary"><i class="far fa-comment"></i></a>
-                    <a href="/blog/{{id}}/upvote" class="btn btn-outline-success"><i class="far fa-thumbs-up"></i></a>
-                    <a href="/blog/{{id}}/downvote" class="btn btn-outline-warning"><i class="far fa-thumbs-down"></i></a>
+                    <a href="/blogpost/{{blog.id}}/comment" class="btn btn-outline-primary"><i class="far fa-comment"></i></a>
+                    <a href="/blogpost/{{blog.id}}/upvote" class="btn btn-outline-success"><i class="far fa-thumbs-up"></i></a>
+                    <a href="/blogpost/{{blog.id}}/downvote" class="btn btn-outline-warning"><i class="far fa-thumbs-down"></i></a>
                 </div>
+                {%else%}
+                {%endif%}
             </div>
             
         </div>

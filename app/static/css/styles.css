@@ -117,9 +117,17 @@ hr {
     position: relative;
 }
 
-.reg-inner input{
+.reg-inner input, .reg-inner textarea{
     max-width: 50%;
     margin: 0 auto;
+}
+
+/* comment */
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /* overlay */

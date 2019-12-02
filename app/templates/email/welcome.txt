@@ -1,0 +1,10 @@
+Hello {{user.username}}
+
+Welcome to Blog Haven
+
+We are delighted to receive your membership and encourage you to explore our wide array of topics 
+such as health, education, lifestyle and relationships.
+
+Yours,
+The Blog Haven team
+
