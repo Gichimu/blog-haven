@@ -10,7 +10,7 @@ bootstrap = Bootstrap()
 login_manager = LoginManager()
 mail = Mail()
 login_manager.session_protection = 'strong'
-login_manager.login_view = 'main.login'
+login_manager.login_view = 'main.home'
 
 
 def create_app(config_name):
