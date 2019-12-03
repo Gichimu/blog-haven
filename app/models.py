@@ -25,7 +25,6 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80))
     email = db.Column(db.String(80), unique=True, index=True)
-    blogposts = db.relationship('Blogpost', backref='users', lazy='dynamic')
     password_secure = db.Column(db.String(255))
 
     @property
@@ -48,7 +47,7 @@ class Comment(db.Model):
     '''
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
-    blog_id = db.Column(db.Integer, db.ForeignKey('blogposts.id'))
+    blog_id = db.Column(db.Integer)
     comment = db.Column(db.String())
     name = db.Column(db.String(255))
     timestamp = db.Column(db.DateTime)
@@ -69,12 +68,11 @@ class Blogpost(db.Model):
 
     __tablename__ = 'blogposts'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer)
     title = db.Column(db.String(255))
     photo_uri = db.Column(db.String(255))
     blog_text = db.Column(db.Text)
     timestamp = db.Column(db.DateTime)
-    comments = db.relationship('Comment', backref='blogpost', lazy='dynamic')
 
     @classmethod
     def get_all_posts(cls):
