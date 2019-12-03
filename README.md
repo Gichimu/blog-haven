@@ -41,8 +41,8 @@ No setups and installations required. The application will run on any web browse
  Incase of any bugs encountered contact [gichimueric12@gmail.com]
 
 ## Website live link
-[https://blog-haven-app.herokuapp.com/]
+[Blog-haven-app](https://blog-haven-app.herokuapp.com/)
 
  
  ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Gichimu/pitches/blob/master/LICENCE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Gichimu/blog-haven/blob/master/LICENCE.md) for details
