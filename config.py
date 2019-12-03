@@ -14,7 +14,7 @@ class Config:
     MAIL_USE_TLS =  True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    
+
 class DevConfig(Config):
     '''
     The child config class that defines the default settings for the development environment
@@ -26,7 +26,7 @@ class ProdConfig(Config):
     '''
     The child configuration class that defines the settings for the production environment
     '''
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 config_options = {
     'production' : ProdConfig,
