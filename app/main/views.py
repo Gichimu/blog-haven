@@ -3,10 +3,11 @@ from ..request import get_quote
 from .. import db
 from . import main
 from datetime import datetime
+from sqlalchemy import desc
 from flask_login import login_user, logout_user, login_required
 from ..models import User, Blogpost, Comment, Vote
 from ..email import mail_message
-from .forms import commentForm, LoginForm, RegistrationForm, createBlog
+from .forms import commentForm, LoginForm, RegistrationForm, createBlog, updateBlogForm
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -17,6 +18,7 @@ def home():
     form = LoginForm()
     quote = get_quote()
     posts = Blogpost.query.limit(4).all()
+    blogposts = Blogpost.query.order_by(desc(Blogpost.id)).all()
     user = None
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data).first()
@@ -27,7 +29,7 @@ def home():
         flash('Invalid username or Password')
 
     
-    return render_template('index.html', quote=quote, form=form, posts=posts)
+    return render_template('index.html', quote=quote, form=form, posts=posts, blogposts=blogposts)
 
 
 @main.route('/create/<int:user_id>', methods=['GET','POST'])
@@ -57,6 +59,7 @@ def blog(id):
     comments = Comment.query.filter_by(blog_id=id).all()
     blog = Blogpost.query.filter_by(id=id).first()
     return render_template('blog.html', blog=blog, comments=comments, like_count=like_count)
+
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
@@ -108,6 +111,30 @@ def upvote(id):
     db.session.commit()
 
     return redirect(url_for('main.blog', id=id))
+
+
+@main.route('/blogpost/<int:id>/delete')
+@login_required
+def delete(id):
+
+    post = Blogpost.query.filter_by(id=id).first()
+    db.session.delete(post)
+    db.session.commit()
+
+    return redirect(url_for('main.home'))
+
+
+@main.route('/blogpost/<int:id>/update', methods=['GET', 'POST'])
+@login_required
+def update(id):
+
+    form = updateBlogForm()
+    post = Blogpost.query.filter_by(id=id).first()
+    if form.validate_on_submit():
+        new_post = Blogpost.query.filter_by(id=id).update({"title": form.title.data, "blog_text": form.blog.data})
+        db.session.commit()
+        return redirect(url_for('main.blog', id=id))
+    return render_template('blog/update_blog.html', form=form)
 
 
 

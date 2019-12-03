@@ -15,6 +15,11 @@ class createBlog(FlaskForm):
     blog = TextAreaField('Enter your text here ...', render_kw={'class': 'form-control', 'rows': 10}, validators=[Required()])
     submit = SubmitField('Submit')
 
+class updateBlogForm(FlaskForm):
+    title = TextField('Title (255 characters maximum)', validators=[Required()])
+    blog = TextAreaField('Enter your text here ...', render_kw={'class': 'form-control', 'rows': 10}, validators=[Required()])
+    submit = SubmitField('Submit')
+
 
 class RegistrationForm(FlaskForm):
     username = StringField('Enter your username', validators=[Required()])
