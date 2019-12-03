@@ -7,7 +7,6 @@ The project is a python-based application that enables users to create, update, 
 ## Main contributors
 - [Eric Gichimu](https://github.com/Gichimu)
 
-
 ## About the author
 The author is a moringa core student studying software development.
 
@@ -36,13 +35,11 @@ No setups and installations required. The application will run on any web browse
 * The postgresql database management system
 
 
-
 ## Support and contact details
  Incase of any bugs encountered contact [gichimueric12@gmail.com]
 
 ## Website live link
 [Blog-haven-app](https://blog-haven-app.herokuapp.com/)
 
- 
- ## License
+## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Gichimu/blog-haven/blob/master/LICENCE.md) for details
