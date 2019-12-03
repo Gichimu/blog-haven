@@ -39,3 +39,28 @@
     </div>
     {%endfor%}
 {%endmacro%}
+
+{%macro displayBlogs(blogposts)%}
+    {%for blogpost in blogposts%}
+    <a href="/blogpost/{{blogpost.id}}" class="card">
+        <div class="card-header">{{blogpost.title | truncate(15)}}</div>
+        <div href="" class="card-body">
+            <img class="img-responsive blog-photo" src="https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687" alt="">
+        
+        </div>
+        <div class="card-footer text-muted">
+            <p>{{blogpost.blog_text | truncate(15)}} read more</p>
+            <div class="icons">
+
+                <div class="comments">
+                    <i class="far fa-comment"></i> 4
+                </div>
+                <div>|</div>
+                <div class="likes">
+                    <i class="fas fa-thumbs-up"></i> 22
+                </div>
+            </div>
+        </div>
+    </a>
+    {%endfor%}
+{%endmacro%}
