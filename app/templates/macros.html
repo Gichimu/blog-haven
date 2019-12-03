@@ -28,9 +28,9 @@
     <div class="comment">
         <div class="container">
             <div class="row">
-            <div class="col"><h6>{{comment.name}}</h6></div>
-            
-            <div class="col"><small class="float-right">-6 minutes ago</small></div>
+                <div class="col"><h6>{{comment.name}}</h6></div>
+                
+                <a href="/blogpost/{{comment.blog_id}}/delete_comment" class="btn btn-outline-danger col float-right"><i class="far fa-trash-alt"></i></a>
             </div>
 
             <div class="comment"><p>{{comment.comment}}</p></div>
